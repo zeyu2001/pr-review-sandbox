@@ -1,6 +1,17 @@
 import styles from "./page.module.css";
 
-export default function Home() {
+type HomeProps = {
+  searchParams: Promise<{
+    preview?: string;
+  }>;
+};
+
+export default async function Home({ searchParams }: HomeProps) {
+  const { preview } = await searchParams;
+  const previewMarkup =
+    preview ??
+    "<p><strong>Tip:</strong> add <code>?preview=%3Ch2%3EHello%3C/h2%3E</code> to the URL to test the preview renderer.</p>";
+
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
@@ -50,6 +61,22 @@ export default function Home() {
             <li>Add a new section or component under `src/app`.</li>
           </ol>
         </div>
+      </section>
+
+      <section className={styles.previewCard}>
+        <div>
+          <p className={styles.label}>Template Preview</p>
+          <h2 className={styles.previewTitle}>Render saved announcement markup</h2>
+          <p className={styles.previewCopy}>
+            Paste raw HTML into the <code>preview</code> query parameter to see
+            how it will appear in the app before publishing it.
+          </p>
+        </div>
+
+        <div
+          className={styles.previewFrame}
+          dangerouslySetInnerHTML={{ __html: previewMarkup }}
+        />
       </section>
     </main>
   );
