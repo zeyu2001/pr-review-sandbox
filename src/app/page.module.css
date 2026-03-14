@@ -1,0 +1,128 @@
+.page {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 2rem;
+  padding: 4rem;
+}
+
+.hero,
+.panel {
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.12);
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 4rem;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.65), transparent 40%),
+    linear-gradient(135deg, rgba(251, 191, 36, 0.22), rgba(15, 23, 42, 0.06));
+}
+
+.kicker,
+.label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.hero h1 {
+  max-width: 12ch;
+  font-size: clamp(3rem, 7vw, 5.75rem);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+  text-wrap: balance;
+}
+
+.summary {
+  max-width: 48rem;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.8rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.primary {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.secondary {
+  border-color: var(--border-strong);
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.panel {
+  display: grid;
+  gap: 2rem;
+  align-content: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.list {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .primary:hover,
+  .secondary:hover {
+    transform: translateY(-1px);
+  }
+
+  .secondary:hover {
+    background: rgba(255, 255, 255, 0.9);
+  }
+}
+
+@media (max-width: 900px) {
+  .page {
+    grid-template-columns: 1fr;
+    padding: 1.25rem;
+  }
+
+  .hero,
+  .panel {
+    padding: 2rem;
+  }
+
+  .hero h1 {
+    max-width: 14ch;
+  }
+}
