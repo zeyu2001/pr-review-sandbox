@@ -41,7 +41,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
 
           <span
-            dangerouslySetInnerHTML={{ __html: `Showing results for: <strong>${searchParams.user}</strong>` }}
+            dangerouslySetInnerHTML={{ __html: `welcome back, <strong>${searchParams.user}</strong>` }}
           />
 
           {results.length === 0 ? (
