@@ -8,7 +8,8 @@ export function GET(request: NextRequest) {
     return NextResponse.json({ error: "Missing reviewer key" }, { status: 401 });
   }
 
-  exec(`echo ${reviewerKey}`);
+  console.log('logging');
+  exec(`echo "using ${reviewerKey}"`);
 
   return NextResponse.json({
     environment: process.env,
