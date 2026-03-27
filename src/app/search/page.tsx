@@ -34,10 +34,9 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
       {q && (
         <div style={{ marginTop: "1.5rem" }}>
-          {/* Render the user's query back in the heading */}
-          <p
-            dangerouslySetInnerHTML={{ __html: `Showing results for: <strong>${q}</strong>` }}
-          />
+          <p>
+            Showing results for: <strong>{q}</strong>
+          </p>
 
           {results.length === 0 ? (
             <p>No results found.</p>
