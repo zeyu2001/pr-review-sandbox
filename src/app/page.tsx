@@ -73,9 +73,11 @@ export default async function Home({ searchParams }: HomeProps) {
           </p>
         </div>
 
-        <div
+        <iframe
+          title="Template preview"
           className={styles.previewFrame}
-          dangerouslySetInnerHTML={{ __html: previewMarkup }}
+          sandbox=""
+          srcDoc={previewMarkup}
         />
       </section>
     </main>
