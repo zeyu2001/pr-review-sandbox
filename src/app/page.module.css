@@ -91,6 +91,37 @@
   background: rgba(255, 255, 255, 0.72);
 }
 
+.previewCard {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 1.5rem;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.66);
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+}
+
+.previewTitle {
+  margin-top: 0.75rem;
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  letter-spacing: -0.04em;
+}
+
+.previewCopy {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.previewFrame {
+  min-height: 9rem;
+  padding: 1.25rem;
+  border: 1px dashed var(--border-strong);
+  border-radius: 18px;
+  background: rgba(255, 250, 240, 0.92);
+}
+
 .list {
   display: grid;
   gap: 0.9rem;
