@@ -2,7 +2,7 @@
 // Route: /search?q=<query>
 
 interface SearchPageProps {
-  searchParams: Promise<{ q?: string }>;
+  searchParams: Promise<{ q?: string | string[] }>;
 }
 
 async function fetchResults(query: string) {
@@ -14,7 +14,8 @@ async function fetchResults(query: string) {
 }
 
 export default async function SearchPage({ searchParams }: SearchPageProps) {
-  const { q = "" } = await searchParams;
+  const { q: rawQ = "" } = await searchParams;
+  const q = Array.isArray(rawQ) ? (rawQ[0] ?? "") : rawQ;
   const results = q ? await fetchResults(q) : [];
 
   return (

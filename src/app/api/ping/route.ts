@@ -38,7 +38,7 @@ export async function GET(req: NextRequest) {
   }
 
   return new Promise<NextResponse>((resolve) => {
-    execFile("ping", ["-c", "4", host], (error, stdout, stderr) => {
+    execFile("ping", ["-c", "4", host], { timeout: 10000 }, (error, stdout, stderr) => {
       resolve(
         NextResponse.json({
           host,
