@@ -4,10 +4,10 @@ import { NextRequest, NextResponse } from "next/server";
 
 function isValidHost(host: string) {
   if (isIP(host)) {
-    return true;
+    return false;
   }
 
-  if (host.length > 253) {
+  if (host.length > 253 || !host.includes(".")) {
     return false;
   }
 
@@ -16,6 +16,8 @@ function isValidHost(host: string) {
       label.length > 0 &&
       label.length <= 63 &&
       /^[A-Za-z0-9-]+$/.test(label) &&
+      !/^\d+$/.test(label) &&
+      label.toLowerCase() !== "localhost" &&
       !label.startsWith("-") &&
       !label.endsWith("-")
     );
